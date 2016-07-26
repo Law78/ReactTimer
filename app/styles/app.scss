@@ -1,0 +1,17 @@
+//My custom CSS File
+$scuro: #333333;
+.top-bar,.top-bar ul {
+  background-color: $scuro;
+}
+
+.menu-text{
+  color: #fff;
+}
+
+li.menu-text a{
+  display:inline-block;
+}
+
+li.menu-text{
+  padding:0;
+}
