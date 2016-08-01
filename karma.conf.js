@@ -1,4 +1,4 @@
-// prelevo la configurazione di webpack
+// prelevo la configurazione di webpack. Questo perchè è un modulo che esporto.
 var webpackConfig = require('./webpack.config.js');
 
 // config è un oggetto che viene passato e che devo impostare con set:
@@ -12,13 +12,13 @@ module.exports = function (config){
       'app/tests/**/*.test.jsx': ['webpack', 'sourcemap'] // specifico il tipo di file e le azioni da effettuare prima del test
     },
     reporters: ['mocha'],     // i reporters che utilizzo per visualizzare i fails e i success
-    client: {
+    client: { // alcune configurazioni che passo al framework di testing
       mocha: {
-        timeout: '5000' // 5 sec. di timeout
+        timeout: '5000' // 5 sec. di timeout - altrimenti il test fallisce
       }
     },
     // Impostazioni per utilizzare Webpack
-    webpack: webpackConfig,
+    webpack: webpackConfig, // nome della variabile che contiene il file di config di webpack
     webpackServer: {
       noInfo: true
     }
