@@ -13,3 +13,5 @@ node server
 ```
 
 Supporta: SASS - Foundation
+
+I file che iniziano con _ sono dei PARTIAL
