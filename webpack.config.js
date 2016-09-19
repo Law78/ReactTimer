@@ -31,6 +31,7 @@ module.exports = {
     root: __dirname,
     // definisco un oggetto alias, in cui inserisco il path (dalla root) dei miei componenti
     alias: {
+      Routes: 'app/routes.jsx',
       Main: 'app/components/Main.jsx',
       Navigation: 'app/components/Navigation.jsx',
       Timer: 'app/components/Timer.jsx',
@@ -54,6 +55,11 @@ module.exports = {
         test: /\.jsx?$/,
         // indico le cartelle da escludere, includo anche quella di bower che userò successivamente
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        // Eseguo il pre-loader su webpack
+        loaders:["style", "css","sass"],
+        test: /\.scss$/
       }
     ]
   },

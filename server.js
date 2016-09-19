@@ -1,6 +1,8 @@
 // Server funzionante su Heroku
 // In questo modo accedo alle API di Express:
 var express = require('express');
+// Carico il modulo che mi permette di lavorare con file e directory
+var path = require('path');
 
 // Creo la mia App Express, ovvero ho una istanza di Express:
 var app = express();
@@ -29,8 +31,12 @@ app.use(function(req, res, next){
 
 // Indichiamo la cartella che pubblichiamo. Con app.use aggiungo funzionalità alla mia App Express.
 // con express.static indico una cartella, in questo caso public:
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
+// Gestisco ogni richiesta di instradamento passando per index.html. Questo per supporta browserHistory di react-router
+app.get('*', function(request, response){
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
 // Avvio il server:
 app.listen(PORT, function(){
   console.log(`Express server is running on port ${PORT}`);
