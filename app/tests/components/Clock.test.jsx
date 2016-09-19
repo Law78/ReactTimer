@@ -29,9 +29,14 @@ describe('Clock', () => {
 
       expect(actualText).toBe('00:00');
     });
+    it('should return 00:00 no value passed', () =>{
+      var clock = TestUtils.renderIntoDocument(<Clock />);
+      var actual = clock.formatSeconds();
+      expect(actual).toBe('00:00');
+    });
   });
-  describe('formatSeconds', () => {
-    it('should format seconds', () => {
+  describe('Logical Function', () => {
+    it('should properly format seconds', () => {
       var clock = TestUtils.renderIntoDocument(<Clock/>);
       var seconds = 615; // 10:15
       var expected = '10:15';
@@ -39,7 +44,11 @@ describe('Clock', () => {
 
       expect(actual).toBe(expected);
     });
-
+    it('should return 00:00 with wrong value passed', () =>{
+      var clock = TestUtils.renderIntoDocument(<Clock />);
+      var actual = clock.formatSeconds('abc');
+      expect(actual).toBe('00:00');
+    });
     it('should format seconds when min/sec are less than 10', () => {
       var clock = TestUtils.renderIntoDocument(<Clock/>);
       var seconds = 61; // 01:01
