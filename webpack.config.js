@@ -38,6 +38,7 @@ module.exports = {
       Countdown: 'app/components/Countdown.jsx',
       Clock: 'app/components/Clock.jsx',
       CountdownForm: 'app/components/CountdownForm.jsx',
+      Controls: 'app/components/Controls.jsx',
       applicationStyle: 'app/styles/app.scss'
     },
     // In questo modo mi evito di specificare l'estensione nei require ;)
