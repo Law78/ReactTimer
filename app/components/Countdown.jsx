@@ -4,6 +4,11 @@ var CountdownForm = require('CountdownForm');
 var Controls = require('Controls');
 
 var Countdown = React.createClass({
+  getDefaultProps: function(){
+    console.log('getDefaultProps');
+
+    return{}
+  },
   getInitialState: function(){
     return {
       count: 0,
@@ -29,7 +34,7 @@ var Countdown = React.createClass({
           });
         case 'paused':
           clearInterval(this.timer)
-          this.timer = undefined;
+          this.timer = undefined; // mi serve solo per "pulire la variabile"
           break;
       }
     }
@@ -40,7 +45,11 @@ var Countdown = React.createClass({
       this.setState({
         count: newCount>=0 ? newCount : 0
       });
-
+      if (newCount === 0) {
+        this.setState({
+          countdownStatus: "stopped"
+        });
+      }
     }, 1000);
   },
   handleStatusChange: function(newStatus) {
